@@ -1,0 +1,25 @@
+# Conecta no MySQL via linha de comando (Windows)
+cd 'C:\Program Files\MySQL\MySQL Server 8.0\bin'
+.\mysql.exe --local-infile=1 -u root -p
+
+# Habilita a Carga de Dados 
+SET GLOBAL local_infile=true;
+
+# Carrega os dados
+LOAD DATA LOCAL INFILE 'D:/PROJETOS/DeliveryCenter/dados_originais/channels.csv' INTO TABLE `delivery`.`channels` CHARACTER SET UTF8 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
+
+LOAD DATA LOCAL INFILE 'D:/PROJETOS/DeliveryCenter/dados_originais/hubs.csv' INTO TABLE `delivery`.`hubs` CHARACTER SET UTF8 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
+
+LOAD DATA LOCAL INFILE 'D:/PROJETOS/DeliveryCenter/dados_originais/stores.csv' INTO TABLE `delivery`.`stores` CHARACTER SET UTF8 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
+
+LOAD DATA LOCAL INFILE 'D:/PROJETOS/DeliveryCenter/dados_originais/drivers.csv' INTO TABLE `delivery`.`drivers` CHARACTER SET UTF8 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
+
+LOAD DATA LOCAL INFILE 'D:/PROJETOS/DeliveryCenter/dados_originais/deliveries.csv' INTO TABLE `delivery`.`deliveries` CHARACTER SET UTF8 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
+
+LOAD DATA LOCAL INFILE 'D:/PROJETOS/DeliveryCenter/dados_originais/payments.csv' INTO TABLE `delivery`.`payments` CHARACTER SET UTF8 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
+
+LOAD DATA LOCAL INFILE 'D:/PROJETOS/DeliveryCenter/dados_originais/orders.csv' INTO TABLE `delivery`.`orders` CHARACTER SET UTF8 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
+
+# Desconecta do MySQL
+exit
+
